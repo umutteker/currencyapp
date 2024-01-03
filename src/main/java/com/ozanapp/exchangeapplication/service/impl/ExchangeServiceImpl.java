@@ -69,9 +69,9 @@ public class ExchangeServiceImpl implements ExchangeService {
 
     BigDecimal rate = rateResponse.getRates().get(request.getTarget());
     ExchangeRateResponse response = new ExchangeRateResponse();
-    response.setBase(request.getSource());
+    response.setSource(request.getSource());
     response.setRate(rate);
-    response.setSymbol(request.getTarget());
+    response.setTarget(request.getTarget());
 
     return response;
   }

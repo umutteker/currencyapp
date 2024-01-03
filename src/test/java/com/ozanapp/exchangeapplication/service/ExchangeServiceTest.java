@@ -30,7 +30,6 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.framework;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -60,8 +59,8 @@ public class ExchangeServiceTest {
         ExchangeRateResponse returnedResponse = exchangeService.getExchangeRate(exchangeRateRequest);
 
         assertEquals(response.getRate(),returnedResponse.getRate());
-        assertEquals(response.getBase(),returnedResponse.getBase());
-        assertEquals(response.getSymbol(),returnedResponse.getSymbol());
+        assertEquals(response.getSource(),returnedResponse.getSource());
+        assertEquals(response.getTarget(),returnedResponse.getTarget());
     }
 
     @Test

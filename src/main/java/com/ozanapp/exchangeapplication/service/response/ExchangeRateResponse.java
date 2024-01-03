@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ExchangeRateResponse {
-  private String base;
-  private String symbol;
+  private String source;
+  private String target;
   private  BigDecimal rate;
 }
