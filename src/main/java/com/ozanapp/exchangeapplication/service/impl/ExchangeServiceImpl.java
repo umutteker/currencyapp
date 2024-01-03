@@ -82,6 +82,11 @@ public class ExchangeServiceImpl implements ExchangeService {
     exchangeRateRequest.setSource(request.getSourceCurrency());
     exchangeRateRequest.setTarget(request.getTargetCurrency());
     ExchangeRateResponse exchangeRateResponse = getExchangeRate(exchangeRateRequest);
+
+    if(request.getSourceAmount()== null ||request.getSourceAmount().compareTo(BigDecimal.ZERO)<=0){
+      throw new CustomBadRequestException("Source Amount Cannot be null, Zero or Negative", "INVALID_SOURCE_AMOUNT");
+    }
+
     BigDecimal targetAmount = exchangeRateResponse.getRate().multiply(request.getSourceAmount()).setScale(2, RoundingMode.DOWN);
 
     Conversion conversion = new Conversion();
